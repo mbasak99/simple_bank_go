@@ -9,7 +9,7 @@ sql:
     schema: "./db/migration/"
     gen:
       go:
-        package: "simple_bank"
+        package: "simple_bank_db"
         out: "./db/sqlc/"
         sql_package: "pgx/v5"
 # overrides:
