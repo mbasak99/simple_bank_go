@@ -11,7 +11,7 @@ import (
 type Account struct {
 	ID        int64
 	Owner     string
-	Balance   pgtype.Numeric
+	Balance   int64
 	Currency  string
 	CreatedAt pgtype.Timestamptz
 }
@@ -20,7 +20,7 @@ type Entry struct {
 	ID        int64
 	AccountID int64
 	// can be negative or positive
-	Amount    pgtype.Numeric
+	Amount    int64
 	CreatedAt pgtype.Timestamptz
 }
 
@@ -29,6 +29,6 @@ type Transfer struct {
 	FromAccountID int64
 	ToAccountID   int64
 	// must be positive
-	Amount    pgtype.Numeric
+	Amount    int64
 	CreatedAt pgtype.Timestamptz
 }

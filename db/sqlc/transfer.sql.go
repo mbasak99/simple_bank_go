@@ -7,8 +7,6 @@ package simple_bank_db
 
 import (
 	"context"
-
-	"github.com/jackc/pgx/v5/pgtype"
 )
 
 const createTransfer = `-- name: CreateTransfer :one
@@ -22,7 +20,7 @@ INSERT INTO transfers (
 type CreateTransferParams struct {
 	FromAccountID int64
 	ToAccountID   int64
-	Amount        pgtype.Numeric
+	Amount        int64
 }
 
 func (q *Queries) CreateTransfer(ctx context.Context, arg CreateTransferParams) (Transfer, error) {
@@ -114,7 +112,7 @@ RETURNING id, from_account_id, to_account_id, amount, created_at
 
 type UpdateTransferParams struct {
 	ID     int64
-	Amount pgtype.Numeric
+	Amount int64
 }
 
 func (q *Queries) UpdateTransfer(ctx context.Context, arg UpdateTransferParams) error {
